@@ -1,0 +1,22 @@
+RewriteEngine on
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_HOST} ^album\.arya\.in [NC] 
+#RewriteCond %{HTTP_HOST} ^bitnorm\.com [NC] 
+RewriteCond %{HTTP_HOST} ^localhost [NC] 
+
+
+RewriteRule ^sort/?$ /index.php?sort=$1 [L]
+RewriteRule ^sort/?$ /index.php?sort=$1 [L]
+RewriteRule ^sort/?$ /index.php?sort=$1 [L]
+
+RewriteRule ^admin/login/?$ /admin/login.php [L]
+RewriteRule ^admin/?$ /admin/index.php [L]
+RewriteRule ^recovery/verifycode/([a-zA-Z0-9_=]+)/([a-zA-Z0-9_=]+)/?$ /recovery.php?type=verification&email=$1&code=$2 [L]
+
+RewriteRule ^signup/verifyemail/([a-zA-Z0-9_=]+)/([a-zA-Z0-9_=]+)/?$ /signup.php?type=verification&email=$1&code=$2 [L]
+
+RewriteRule ^([a-zA-Z0-9]+)/([a-zA-Z0-9_]+)/?$ /index.php?tab=$1&subtab=$2
+
+ErrorDocument 404 /404.php
